@@ -3,8 +3,8 @@ This project demonstrates NESTED LOOPS (i.e., loops within loops)
 in the context of PRINTING on the CONSOLE.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Nicolas Bohner.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -61,6 +61,11 @@ def rectangle_of_stars(r, c):
     #   in this or the other problems in this module, as doing so
     #   would defeat the goal of providing practice at loops within loops.
     # ------------------------------------------------------------------
+    for k in range(r):
+        sublist = ""
+        for j in range(c):
+            sublist = sublist+"*"
+        print(sublist)
 
 
 def run_test_triangle_of_stars():
@@ -116,6 +121,11 @@ def triangle_of_stars(r):
     #   in this or the other problems in this module, as doing so
     #   would defeat the goal of providing practice at loops within loops.
     # ------------------------------------------------------------------
+    for k in range(r):
+        sublist = ""
+        for j in range(k+1):
+            sublist = sublist + "*"
+        print(sublist)
 
 
 def run_test_decreasing_exclamation_marks():
@@ -158,6 +168,11 @@ def decreasing_exclamation_marks(m, n):
     #   in this or the other problems in this module, as doing so
     #   would defeat the goal of providing practice at loops within loops.
     # ------------------------------------------------------------------
+    for k in range(m, n-1, -1):
+        sub = ""
+        for j in range(k):
+            sub = sub+"!"
+        print(sub)
 
 
 def run_test_alternating_brackets():
@@ -200,6 +215,14 @@ def alternating_brackets(m, n):
     #   in this or the other problems in this module, as doing so
     #   would defeat the goal of providing practice at loops within loops.
     # ------------------------------------------------------------------
+    for k in range(m, n-1, -1):
+        sub = ""
+        for j in range(1, k+1):
+            if j % 2 == 1:
+                sub = sub + "["
+            else:
+                sub = sub+"]"
+        print(sub)
 
 
 def run_test_triangle_same_number_in_each_row():
@@ -243,6 +266,11 @@ def triangle_same_number_in_each_row(r):
     #   in this or the other problems in this module, as doing so
     #   would defeat the goal of providing practice at loops within loops.
     # ------------------------------------------------------------------
+    for k in range(1, r+1):
+        sub = ""
+        for j in range(k):
+            sub = sub+str(k)
+        print(sub)
 
 
 def run_test_triangle_all_numbers_in_each_row():
@@ -286,9 +314,15 @@ def triangle_all_numbers_in_each_row(r):
     #   in this or the other problems in this module, as doing so
     #   would defeat the goal of providing practice at loops within loops.
     # ------------------------------------------------------------------
-
+    for k in range(1, r+1):
+        sub = ""
+        for j in range(1, k+1):
+            sub = sub+str(j)
+        print(sub)
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
+
+
 main()
