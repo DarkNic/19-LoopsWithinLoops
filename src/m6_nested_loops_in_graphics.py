@@ -3,8 +3,8 @@ This project demonstrates NESTED LOOPS (i.e., loops within loops)
 in the context of TWO-DIMENSIONAL GRAPHICS.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Nicolas Bohner.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -83,6 +83,19 @@ def draw_L(window, circle, r, c):
     # TODO: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+    oc = circle.center.x
+    for k in range(r):
+        t = 3
+        if k >= r - 3:
+            t = c
+        for j in range(t):
+            circle1 = rg.Circle(circle.center, circle.radius)
+            circle.fill_color = circle.fill_color
+            circle1.attach_to(window)
+            circle.center.x = circle.center.x+2*circle.radius
+            window.render(.1)
+        circle.center.x = oc
+        circle.center.y = circle.center.y+circle.radius*2
 
 
 def run_test_draw_wall_on_right():
@@ -124,6 +137,17 @@ def draw_wall_on_right(rectangle, n, window):
     # TODO: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+    orectx1 = rectangle.corner_1.x
+    orectx2 = rectangle.corner_2.x
+    for k in range(n+1):
+        for j in range(k):
+            new_r = rg.Rectangle(rectangle.corner_1, rectangle.corner_2)
+            new_r.attach_to(window)
+            rectangle.move_by(-(rectangle.get_width()), 0)
+            window.render(.1)
+        rectangle.corner_1.x = orectx1
+        rectangle.corner_2.x = orectx2
+        rectangle.move_by(0, rectangle.get_height())
 
 
 # ----------------------------------------------------------------------
