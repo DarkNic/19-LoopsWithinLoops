@@ -157,6 +157,9 @@ def run_test_sum_numbers():
 
     # TO DO 3 (continued): Add your ADDITIONAL test(s) here:
 
+    expected = 5
+    answer = sum_numbers(([], [5], []))
+    print('Expected and actual are:', expected, answer)
 
 def sum_numbers(seq_seq):
     """
@@ -169,7 +172,7 @@ def sum_numbers(seq_seq):
                     and each item in the subsequences is a number.
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     total1 = 0
@@ -283,7 +286,7 @@ def print_characters_slanted(sequence_of_strings):
     Precondition:  the given argument is a sequence of strings.
     """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # Done: 6. Implement and test this function.
     #  ** READ THE TESTS that have been written for you (ABOVE).
     #  ** ASK QUESTIONS if you do not understand the TESTS (ABOVE).
     #
@@ -291,8 +294,10 @@ def print_characters_slanted(sequence_of_strings):
     #             and string addition to stitch the spaces to the character.
     # ------------------------------------------------------------------
     for k in range(len(sequence_of_strings)):
+        sub = ""
         for j in range(len(sequence_of_strings[k])):
-            print((" "*j), sequence_of_strings[k][j])
+            sub = sub+" "
+            print(sub, sequence_of_strings[k][j])
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

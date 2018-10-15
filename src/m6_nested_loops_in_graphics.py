@@ -80,17 +80,17 @@ def draw_L(window, circle, r, c):
     and m and n are small, positive integers.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
     oc = circle.center.x
-    for k in range(r):
+    for k in range(r+3):
         t = 3
-        if k >= r - 3:
-            t = c
+        if k >= r:
+            t = c+3
         for j in range(t):
             circle1 = rg.Circle(circle.center, circle.radius)
-            circle.fill_color = circle.fill_color
+            circle1.fill_color = circle.fill_color
             circle1.attach_to(window)
             circle.center.x = circle.center.x+2*circle.radius
             window.render(.1)
@@ -134,20 +134,21 @@ def draw_wall_on_right(rectangle, n, window):
     and n is a small, positive integer.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-    orectx1 = rectangle.corner_1.x
-    orectx2 = rectangle.corner_2.x
-    for k in range(n+1):
+#    rectangle.attach_to(window)
+    new_r = rectangle.clone()
+    for k in range(n):
+        new_r.attach_to(window)
+        new_r1 = new_r.clone()
         for j in range(k):
-            new_r = rg.Rectangle(rectangle.corner_1, rectangle.corner_2)
-            new_r.attach_to(window)
-            rectangle.move_by(-(rectangle.get_width()), 0)
+            new_r1 = new_r1.clone()
+            new_r1.attach_to(window)
+            new_r1.move_by(-(rectangle.get_width()), 0)
             window.render(.1)
-        rectangle.corner_1.x = orectx1
-        rectangle.corner_2.x = orectx2
-        rectangle.move_by(0, rectangle.get_height())
+        new_r = new_r.clone()
+        new_r.move_by(0, rectangle.get_height())
 
 
 # ----------------------------------------------------------------------
